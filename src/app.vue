@@ -1,24 +1,15 @@
-<style scoped>
-    @import 'styles/common.css';
-</style>
 <template>
-    <div>
-        <router-view></router-view>
-    </div>
+  <div id="app" style="height: 100%">
+    <router-view/>
+  </div>
 </template>
+
 <script>
-    export default {
-        data () {
-            return {}
-        },
-        mounted () {
-
-        },
-        beforeDestroy () {
-
-        },
-        methods: {
-
-        }
+  export default {
+    name: 'App',
+    computed: {},
+    created() {
     }
+  }
 </script>
+

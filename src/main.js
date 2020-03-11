@@ -1,34 +1,58 @@
-import Vue from 'vue';
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import Vue from 'vue'
+import App from './App'
+import router from './router'
 import ViewUI from 'view-design';
-import VueRouter from 'vue-router';
-import Routers from './router';
-import Util from './libs/util';
-import App from './app.vue';
+// 引入字体图标库
 import 'view-design/dist/styles/iview.css';
+import './assets/iconfont/iconfont.css'
+import bus from 'vue-bus'
+import GLOBAL from './common/global.js'
+import store from './store/store.js'
+import * as Utils from './common/utils.js'
+import moment from 'moment'
+import 'moment/locale/zh-cn'
 
-Vue.use(VueRouter);
-Vue.use(ViewUI);
+Vue.use(ViewUI)
+Vue.use(bus)
 
-// 路由配置
-const RouterConfig = {
-    mode: 'history',
-    routes: Routers
-};
-const router = new VueRouter(RouterConfig);
+// 挂载到Vue实例上面
+Vue.prototype.GLOBAL = GLOBAL
+Vue.prototype.Utils = Utils
+Vue.prototype.$moment = moment
 
-router.beforeEach((to, from, next) => {
-    ViewUI.LoadingBar.start();
-    Util.title(to.meta.title);
-    next();
-});
+if (process.env.NODE_ENV === 'development') {
+  require('./api/mock');
+}
 
-router.afterEach((to, from, next) => {
-    ViewUI.LoadingBar.finish();
-    window.scrollTo(0, 0);
-});
+// 页面刷新时，重新赋值
+if (window.sessionStorage.getItem('userData')) {
+  let data = JSON.parse(window.sessionStorage.getItem('userData'));
+  store.commit('SET_INFO', {name: data.name, id: data.id})
+  store.dispatch('ChangeTheme', data.theme)
+}
 
-new Vue({
-    el: '#app',
-    router: router,
-    render: h => h(App)
-});
+router.beforeEach(({meta, path}, from, next) => {
+  //var {auth = true} = meta
+  // true用户已登录， false用户未登录
+  // var isLogin = Boolean(store.state.user.info)
+  // if (auth && !isLogin && path !== '/login') {
+  //   return next({path: '/login'})
+  // }
+  next()
+})
+
+Vue.config.productionTip = false
+
+let vm = new Vue({
+  el: '#app',
+  store,
+  router,
+  components: {App},
+  template: '<App/>'
+})
+
+Vue.use({
+  vm
+})
