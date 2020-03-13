@@ -34,7 +34,7 @@ if (window.sessionStorage.getItem('userData')) {
 }
 
 router.beforeEach(({meta, path}, from, next) => {
-  //var {auth = true} = meta
+  // var {auth = true} = meta
   // true用户已登录， false用户未登录
   // var isLogin = Boolean(store.state.user.info)
   // if (auth && !isLogin && path !== '/login') {
