@@ -5,7 +5,7 @@
             <a href="javascript:void()" class="demo-badge"><div class="txt"><span>任务调度系统</span></div></a>
         </FormItem>
         <FormItem>
-            <i-input name="token" size="large"  placeholder="输入口令" />
+            <i-input name="token" size="large"  type="password" password placeholder="输入口令" v-model="token" />
         </FormItem>
         <FormItem>
             <i-button type="primary" size="large" v-on:click="login" long>提交</i-button>
@@ -17,10 +17,16 @@
 export default {
   data() {
     return {
+      token:''
     };
   },
   methods: {
     login() {
+      if(this.token=="123456"){
+        this.$router.push({path:'home'});
+      }else{
+        this.$Message.warning('口令错误!');
+      }
     }
   }
 };

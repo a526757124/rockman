@@ -2,6 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import router from './router'
 import ViewUI from 'view-design';
 // 引入字体图标库
@@ -15,6 +17,7 @@ import moment from 'moment'
 import 'moment/locale/zh-cn'
 
 Vue.use(ViewUI)
+Vue.use(ElementUI)
 Vue.use(bus)
 
 // 挂载到Vue实例上面

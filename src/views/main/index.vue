@@ -1,18 +1,18 @@
 <template>
     <Layout >
-            <Header>
-                <Menu mode="horizontal" theme="dark" active-name="2">
+            <Header class="main-header">
+                <Menu mode="horizontal" theme="dark" active-name="1" class="main-header-menu">
                     <div class="layout-logo"></div>
                     <div class="layout-nav">
-                        <MenuItem name="1">
-                            <Icon type="ios-navigate"></Icon>
+                        <MenuItem name="1" to="home">
+                            <Icon type="ios-navigate" ></Icon>
                             监控
                         </MenuItem>
-                        <MenuItem name="2">
+                        <MenuItem name="2" to="node">
                             <Icon type="ios-keypad"></Icon>
                             NODE
                         </MenuItem>
-                        <MenuItem name="3">
+                        <MenuItem name="3" to="task">
                             <Icon type="ios-analytics"></Icon>
                             任务
                         </MenuItem>
@@ -43,14 +43,19 @@
 .main {
   height: 100%;
 }
+.main-header,.main-header-menu,.ivu-menu-item{
+    height: 64px;
+}
+
 .main-content{
     position: absolute;
     left: 0;
     right: 0;
-    padding: 0 0px;
+    padding:0 80px;
     margin: 0 auto;
-    margin-top: 0px;
-    min-height: calc(100% - 64px);
+    margin-top: 40px;
+    /* background: #EDF0F5; */
+    min-height: calc(100% - 104px);
 }
 .main-content-con{
   padding: 15px;
@@ -73,5 +78,8 @@
         padding-left: 180px;
         /* margin: 0 auto; */
         /* margin-right: 20px; */
+}
+.ivu-menu-item-active{
+    background: #33A6F7;
 }
 </style>
