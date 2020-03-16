@@ -2,10 +2,14 @@ import {getUserInfo} from '@/api/login'
 
 const user = {
   state: {
+    token: '',
     info: '',
     theme: ''
   },
   mutations: {
+    SET_TOKEN: (state, token) => {
+      state.token = token
+    },
     SET_INFO: (state, info) => {
       state.info = info
     },

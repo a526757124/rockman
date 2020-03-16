@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div style>
+      <div style>
         <div data-v-542f4644 class="ivu-row" style="padding:15px;background: white;">
           <div
             v-for="item in topColor"
@@ -19,8 +19,7 @@
             </div>
           </div>
         </div>
-      </div>
-       
+      </div>      
     </div>
 </template>
 <script>

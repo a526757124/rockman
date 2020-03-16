@@ -2,7 +2,7 @@
     <Layout >
             <Header class="main-header">
                 <Menu mode="horizontal" theme="dark" active-name="1" class="main-header-menu">
-                    <div class="layout-logo"></div>
+                    <div class="layout-header-text">任务调度系统</div>
                     <div class="layout-nav">
                         <MenuItem name="1" to="home">
                             <Icon type="ios-navigate" ></Icon>
@@ -72,6 +72,14 @@
     position: relative;
     top: 15px;
     left: 20px;
+}
+.layout-header-text{
+    width: 120px;
+    height: 30px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 18px;
+    float: left;
 }
 .layout-nav{
         /* width: 420px; */

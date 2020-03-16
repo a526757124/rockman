@@ -14,17 +14,21 @@
 </div>
 </template>
 <script>
+
 export default {
   data() {
     return {
-      token:''
+      token: ''
     };
   },
   methods: {
     login() {
-      if(this.token=="123456"){
-        this.$router.push({path:'home'});
-      }else{
+    if (this.token === '123456') {
+        this.$Message.info('登陆成功,正在跳转!');
+        this.$store.commit('SET_TOKEN', this.token)
+        window.sessionStorage.setItem('Token', this.token)
+        this.$router.push({path: 'home'})
+      } else {
         this.$Message.warning('口令错误!');
       }
     }

@@ -1,13 +1,12 @@
 <template>
     <div>
         <i-table :columns="columns" :data="tableData" class="v-table" border>
-            
         </i-table>
     </div>
 </template>
 <script>
     export default {
-        props:{
+        props: {
             tableData: {
                 // 表数据源,配置了url就不用传这个参数了
                 type: Array,
@@ -17,7 +16,7 @@
             },
             columns: {
                 type: Array,
-                default: []
+                default: () => []
                 // [ {
                 //   field: "columnType",
                 //   title: "数据类型",
@@ -29,12 +28,12 @@
             },
             url: {
                 type: String,
-                default: ""
+                default: ''
             },
             paginationHide: {
               type: Boolean,
               default: true
-            },
+            }
         },
         data () {
             return {
@@ -45,4 +44,3 @@
 <style scoped>
 
 </style>
-
