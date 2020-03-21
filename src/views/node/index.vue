@@ -23,11 +23,11 @@
     </div>
 </template>
 <script>
-import tableC from "@/components/table/table.vue";
-import tableH from "@/components/table/table-header.vue";
+import tableC from '@/components/table/table.vue';
+import tableH from '@/components/table/table-header.vue';
 export default {
-    components: { tableC,tableH },
-    data(){
+    components: { tableC, tableH },
+    data() {
         return {
             columns: [
                 {
@@ -44,12 +44,11 @@ export default {
                 }
             ],
             data: [
-                
             ]
         }
     },
-    methods:{
-        init(){
+    methods: {
+        init() {
 
         },
         onAdd() {
@@ -66,7 +65,5 @@ export default {
         }
     }
 
-}   
+}
 </script>
-
-

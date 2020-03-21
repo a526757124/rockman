@@ -19,39 +19,39 @@
             </div>
           </div>
         </div>
-      </div>      
+      </div>
     </div>
 </template>
 <script>
 export default {
-    data(){
-        return{
+    data() {
+        return {
              topColor: [
                 {
-                name: "Node数量",
-                desc: "205",
-                background: "rgb(25, 190, 107)",
-                icon: "ios-home"
+                name: 'Node数量',
+                desc: '205',
+                background: 'rgb(25, 190, 107)',
+                icon: 'ios-home'
                 },
                 {
-                name: "任务数量",
-                desc: "412",
-                background: "rgb(45, 183, 245)",
-                icon: "ios-help-buoy"
+                name: '任务数量',
+                desc: '412',
+                background: 'rgb(45, 183, 245)',
+                icon: 'ios-help-buoy'
                 },
                 {
-                name: "累计执行次数",
-                desc: "200",
-                background: "rgb(255, 153, 0)",
-                icon: "md-ionic"
+                name: '累计执行次数',
+                desc: '200',
+                background: 'rgb(255, 153, 0)',
+                icon: 'md-ionic'
                 },
                 {
-                name: "累计异常次数",
-                desc: "1020",
-                background: "rgb(237, 64, 20)",
-                icon: "ios-navigate"
+                name: '累计异常次数',
+                desc: '1020',
+                background: 'rgb(237, 64, 20)',
+                icon: 'ios-navigate'
                 }
-            ],
+            ]
         }
     }
 }
@@ -180,4 +180,3 @@ export default {
   }
 }
 </style>
-

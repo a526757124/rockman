@@ -45,16 +45,15 @@
             </div>
         </Modal>
     </div>
-        
 
     </div>
 </template>
 <script>
-import tableC from "@/components/table/table.vue";
-import tableH from "@/components/table/table-header.vue";
+import tableC from '@/components/table/table.vue';
+import tableH from '@/components/table/table-header.vue';
 export default {
-    components: { tableC,tableH },
-    data(){
+    components: { tableC, tableH },
+    data() {
         return {
             columns: [
                 {
@@ -121,12 +120,12 @@ export default {
             ],
             data: [
                 {
-                    name:"破损统计",
-                    type:"",
-                    cron:"",
-                    lstDate:"",
-                    sate:"",
-                    remark:""
+                    name: '破损统计',
+                    type: '',
+                    cron: '',
+                    lstDate: '',
+                    sate: '',
+                    remark: ''
                 }
             ],
             selectCom: {
@@ -138,8 +137,15 @@ export default {
             model: false,
             modelMessage: '任务管理',
             taskValidate: {
-                taskName: '', groupName: '', interval: '', apiUrl: '', authKey: '', authValue:
-                    '', describe: '', requestType: ''
+                taskName: '',
+groupName: '',
+interval: '',
+apiUrl: '',
+authKey: '',
+authValue:
+                    '',
+describe: '',
+requestType: ''
             },
             ruleValidate: {
                 taskName: [{ required: true, message: '任务名称必填', trigger: 'blur' }],
@@ -152,26 +158,31 @@ export default {
                 { name: 'taskName', text: '任务名称', value: '', placeholder: '任务名称与触发器名称默认相同', readOnly: false },
                 { name: 'groupName', text: '分组', value: '', placeholder: '分组名称与分组名称默认相同', readOnly: false },
                 { name: 'interval', text: '间隔(Cron)', value: '', placeholder: '如10分钟执行一次：0/0 0/10 * * * ? ' },
-                { name: 'apiUrl', text: 'ApiUrl', value: '', placeholder: "远程调用接口URL" },
+                { name: 'apiUrl', text: 'ApiUrl', value: '', placeholder: '远程调用接口URL' },
                 { name: 'authKey', text: 'header(key)', value: '', placeholder: '请求header验证的Key' },
                 { name: 'authValue', text: 'header(value)', value: '', placeholder: '请求header验证的Key' },
                 {
-                    name: 'requestType', text: '请求方式', value: '', onChange: (data, value) => {
-                    }, placeholder: 'post/get', type: 'select'
+                    name: 'requestType',
+text: '请求方式',
+value: '',
+onChange: (data, value) => {
+                    },
+placeholder: 'post/get',
+type: 'select'
                 },
                 { name: 'describe', text: '描述', value: '', type: 'textarea' }
             ]
         }
     },
-    methods:{
-        init(){
+    methods: {
+        init() {
 
         },
         onAdd() {
             for (var key in this.taskValidate) {
                 this.taskValidate[key] = '';
             }
-            //this.setFormClass(false);
+            // this.setFormClass(false);
             this.model = true;
         },
         onEdit() {
@@ -183,12 +194,10 @@ export default {
         onRefresh() {
 
         },
-        onSave(){
+        onSave() {
 
         }
     }
 
-}   
+}
 </script>
-
-

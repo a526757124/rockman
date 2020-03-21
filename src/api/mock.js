@@ -2,6 +2,25 @@ import GLOBAL from '../common/global.js'
 
 const Mock = require('mockjs')
 
+Mock.mock(GLOBAL.HOME + '/login', /post|get/i, function (options) {
+  let data = JSON.parse(options.body);
+  // 模拟登录
+  if (data.token === '123456') {
+    return {
+      code: 200,
+      state: 'success',
+      'name': 'admin',
+      'id': '1'
+    }
+  } else {
+    return {
+      code: 400,
+      state: 'error',
+      message: '口令错误!'
+    }
+  }
+});
+
 Mock.mock(GLOBAL.HOME + '/getUserInfo', /post|get/i, function (options) {
   let data = JSON.parse(options.body);
   // 模拟登录成功与失败

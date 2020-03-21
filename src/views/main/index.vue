@@ -1,27 +1,28 @@
 <template>
     <Layout >
             <Header class="main-header">
-                <Menu mode="horizontal" theme="dark" active-name="1" class="main-header-menu">
-                    <div class="layout-header-text">任务调度系统</div>
-                    <div class="layout-nav">
-                        <MenuItem name="1" to="home">
-                            <Icon type="ios-navigate" ></Icon>
-                            监控
-                        </MenuItem>
-                        <MenuItem name="2" to="node">
-                            <Icon type="ios-keypad"></Icon>
-                            NODE
-                        </MenuItem>
-                        <MenuItem name="3" to="task">
-                            <Icon type="ios-analytics"></Icon>
-                            任务
-                        </MenuItem>
-                        <MenuItem name="4">
-                            <Icon type="ios-paper"></Icon>
-                            日志
-                        </MenuItem>
-                    </div>
-                </Menu>
+                <div class="layout-header-text">任务调度系统</div>
+                <div class="layout-nav">
+                    <Menu mode="horizontal" theme="dark" active-name="1" class="main-header-menu">
+                            <MenuItem name="1" to="home">
+                                <Icon type="ios-navigate" ></Icon>
+                                监控
+                            </MenuItem>
+                            <MenuItem name="2" to="node">
+                                <Icon type="ios-keypad"></Icon>
+                                NODE
+                            </MenuItem>
+                            <MenuItem name="3" to="task">
+                                <Icon type="ios-analytics"></Icon>
+                                任务
+                            </MenuItem>
+                            <MenuItem name="4">
+                                <Icon type="ios-paper"></Icon>
+                                日志
+                            </MenuItem>
+                    </Menu>
+                </div>
+                <div class="layout-header-user"><a v-on:click="loginOut">安全退出</a></div>
             </Header>
             <Layout>
                 <Layout>
@@ -36,7 +37,18 @@
 </template>
 <script>
     export default {
-
+    data() {
+        return {
+        token: ''
+        };
+    },
+    methods: {
+        loginOut() {
+            this.$store.commit('SET_TOKEN', null)
+            window.sessionStorage.setItem('Token', null)
+            this.$router.push({path: 'home'})
+        }
+    }
     }
 </script>
 <style scoped>
@@ -81,9 +93,19 @@
     font-size: 18px;
     float: left;
 }
+.layout-header-user{
+    width: 200px;
+    height: 30px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 18px;
+    padding-right: 50px;
+    float: right;
+}
 .layout-nav{
         /* width: 420px; */
-        padding-left: 180px;
+        padding-left: 50px;
+        float: left;
         /* margin: 0 auto; */
         /* margin-right: 20px; */
 }

@@ -14,7 +14,7 @@
 </div>
 </template>
 <script>
-
+import { login } from '@/api/login.js';
 export default {
   data() {
     return {
@@ -23,14 +23,16 @@ export default {
   },
   methods: {
     login() {
-    if (this.token === '123456') {
-        this.$Message.info('登陆成功,正在跳转!');
-        this.$store.commit('SET_TOKEN', this.token)
-        window.sessionStorage.setItem('Token', this.token)
-        this.$router.push({path: 'home'})
-      } else {
-        this.$Message.warning('口令错误!');
-      }
+      login({ token: this.token }).then((data) => {
+        if (data.code === 200) {
+          this.$Message.info('登陆成功,正在跳转!');
+          this.$store.commit('SET_TOKEN', this.token)
+          window.sessionStorage.setItem('Token', this.token)
+          this.$router.push({path: 'home'})
+        } else {
+          this.$Message.warning(data.message);
+        }
+      });
     }
   }
 };
